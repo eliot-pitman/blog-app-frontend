@@ -9,6 +9,10 @@
     <router-link to="/signup">SignUp</router-link>
     |
     <router-link to="/login">LogIn</router-link>
+    |
+    <router-link to="/Posts">Posts</router-link>
+    |
+    <router-link to="/Posts/new">Create Post</router-link>
   </nav>
   <router-view />
 </template>
