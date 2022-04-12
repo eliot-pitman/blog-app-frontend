@@ -20,5 +20,6 @@ export default {
   <h1>here are all posts</h1>
   <div v-for="post in posts" :key="post.id">
     <h2>post: {{ post.title }}</h2>
+    <a :href="`/posts/${post.id}`">click for more info</a>
   </div>
 </template>

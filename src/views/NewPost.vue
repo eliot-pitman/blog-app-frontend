@@ -13,7 +13,7 @@ export default {
       console.log("make a new post");
 
       axios
-        .post("http://localhost:3000/posts", this.newPostsParams)
+        .post("http://localhost:3000/posts.json", this.newPostsParams)
         .then((response) => {
           console.log("success", response.data);
           this.posts.push(response.data);
