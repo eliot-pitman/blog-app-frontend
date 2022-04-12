@@ -8,7 +8,7 @@ export default {
       errors: [],
     };
   },
-  method: {
+  methods: {
     createPost: function () {
       console.log("make a new post");
 
