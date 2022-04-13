@@ -1,19 +1,17 @@
 <script>
 // @ is an alias to /src
 // import axios from "axios";
-import HelloWorld from "@/components/HelloWorld.vue";
+// import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
+  data: function () {
+    return {};
   },
 };
 </script>
 
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Blog App</h1>
   </div>
 </template>
