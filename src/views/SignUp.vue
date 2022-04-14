@@ -4,7 +4,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newUserParams: {},
+      newUserParams: { name: "", password: "" },
       errors: [],
     };
   },
@@ -34,6 +34,7 @@ export default {
       <div>
         <label>Name:</label>
         <input type="text" v-model="newUserParams.name" />
+        <small>{{ 20 - newUserParams.name.length }} character remaining</small>
       </div>
       <div>
         <label>Email:</label>

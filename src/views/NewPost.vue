@@ -4,8 +4,9 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newPostsParams: {},
+      newPostsParams: { body: "" },
       errors: [],
+      status: "",
     };
   },
   methods: {
@@ -17,8 +18,12 @@ export default {
         .then((response) => {
           console.log("success", response.data);
           this.posts.push(response.data);
+          // this.$router.push("/");
         })
-        .catch((error) => console.log(error.response));
+        .catch((error) => {
+          console.log("error", error.response.status, error.response.statusText);
+          this.status = error.response.status;
+        });
     },
   },
 };
@@ -33,20 +38,28 @@ export default {
           title:
           <input type="text" v-model="newPostsParams.title" />
         </div>
-        <div class="post-group">
-          body:
-          <input type="text" v-model="newPostsParams.body" />
+        <div class="form-group post-group">
+          <label for="exampleFormControlTextarea1">Body</label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            v-model="newPostsParams.body"
+          ></textarea>
+          <small v-if="newPostsParams.body.length > 120" class="text-danger">
+            Characters over: {{ newPostsParams.body.length - 120 }}
+          </small>
+          <small v-if="newPostsParams.body.length < 120">
+            Characters remaining: {{ 120 - newPostsParams.body.length }}
+          </small>
         </div>
         <div class="post-group">
           image:
           <input type="text" v-model="newPostsParams.image" />
         </div>
-        <div class="post-group">
-          user_id:
-          <input type="text" v-model="newPostsParams.user_id" />
-        </div>
       </div>
       <input type="submit" value="createPost" />
     </form>
+    <img v-if="status" v-bind:src="`https://http.cat/${status}`" alt="" />
   </div>
 </template>
