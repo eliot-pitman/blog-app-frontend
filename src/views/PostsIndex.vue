@@ -19,8 +19,8 @@ export default {
 
 <template>
   <h1>here are all posts</h1>
-  <div class="col-sm-4 mb-4" v-for="post in posts" :key="post.id">
-    <div class="card" style="width: 18rem">
+  <div v-for="post in posts" :key="post.id">
+    <div class="card col-sm-4 mb-4" style="width: 18rem">
       <img :src="`${post.image}`" class="card-img-top" />
       <div class="card-body">
         <h5 class="card-title">post: {{ post.title }}</h5>

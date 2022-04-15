@@ -42,7 +42,7 @@ export default {
           <li class="nav-item">
             <a class="nav-link" href="/posts">Posts</a>
           </li>
-          <li class="nav-item">
+          <li v-if="isLoggedIn" class="nav-item">
             <a class="nav-link" href="/Posts/new">Create Post</a>
           </li>
           <li v-if="!!isLoggedIn" class="nav-item">
