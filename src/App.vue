@@ -100,6 +100,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Rubik+Puddles&family=Rubik+Wet+Paint&family=UnifrakturMaguntia&display=swap");
 #app {
   font-family: "Chelsea Market", cursive;
+  background: gray;
 }
 
 a.navbar-brand {

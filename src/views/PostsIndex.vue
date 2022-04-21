@@ -8,6 +8,7 @@ export default {
       posts: [],
       currentPosts: {},
       titleFilter: "",
+      boolean: true,
     };
   },
   created: function () {
@@ -27,6 +28,21 @@ export default {
         return lowerTitle.includes(lowerTitleFilter);
       });
     },
+    sortedArray() {
+      let sortedPosts = this.posts;
+      sortedPosts = sortedPosts.sort((a, b) => {
+        let fa = a.title.toLowerCase(),
+          fb = b.title.toLowerCase();
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+      return sortedPosts;
+    },
   },
 };
 </script>
@@ -38,6 +54,7 @@ export default {
     <datalist id="titles">
       <option v-for="post in posts" v-bind:key="post.id">{{ post.title }}</option>
     </datalist>
+    <button @click="sortedArray()">Sort by Title</button>
     <div v-for="post in filterPosts()" @click="currentPosts = post" v-bind:key="post.id" class="card col-sm-4 mb-4">
       <div class="card col-sm-4 mb-4" style="width: 18rem">
         <img :src="`${post.image}`" class="card-img-top" />

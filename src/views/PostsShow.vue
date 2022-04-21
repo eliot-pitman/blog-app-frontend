@@ -16,7 +16,7 @@ export default {
       axios.delete("http://localhost:3000/posts/" + this.$route.params.id).then((response) => {
         console.log("post destroyed", response);
         this.message = "succesfully deleted";
-        // this.$router.push("/posts");
+        this.$router.push("/posts");
       });
     },
   },

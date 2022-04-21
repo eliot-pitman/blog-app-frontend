@@ -16,6 +16,7 @@ export default {
       axios.patch("http://localhost:3000/posts/" + this.$route.params.id + ".json", this.post).then((response) => {
         console.log("success", response.data);
         // this.post.push(response.data);
+        this.$router.push("/posts");
       });
     },
   },
